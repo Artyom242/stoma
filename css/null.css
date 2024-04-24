@@ -185,7 +185,7 @@ body::-webkit-scrollbar-thumb {
 .__container {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 5px;
+  padding: 0 10px;
 }
 
 .main_blocks {
@@ -215,19 +215,23 @@ p {
 }
 
 .p_20 {
-  font-size: calc(20px + 0 * (100vw / 1300));
+  font-size: calc(16px + 4 * (100vw / 1300));
 }
 
 .p_16 {
-  font-size: calc(16px + 0 * (100vw / 1300));
+  font-size: calc(14px + 2 * (100vw / 1300));
 }
 
-.text_warning {
+.text_small {
   font-size: calc(15px + 0 * (100vw / 1300));
 }
 
 .line_height_min {
   line-height: 1.1;
+}
+
+.light {
+  font-weight: 300;
 }
 
 /* Заголовки */
@@ -236,7 +240,7 @@ h1 {
 }
 
 h2 {
-  font-size: calc(32px + 6 * (100vw / 1300));
+  font-size: calc(29px + 9 * (100vw / 1300));
 }
 
 h3 {
