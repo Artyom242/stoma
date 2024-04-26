@@ -244,7 +244,7 @@ h2 {
 }
 
 h3 {
-  font-size: calc(28px + 0 * (100vw / 1300));
+  font-size: calc(25px + 3 * (100vw / 1300));
 }
 
 h4 {
