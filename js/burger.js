@@ -1,22 +1,27 @@
-const menu = document.getElementById('header_top_burger_menu');
-const burger = document.getElementById('burger');
+    function toggleMenu() {
+        const menu = document.getElementById('header_top_burger_menu');
+        const burgerButtons = document.querySelectorAll('.header_top_burger');
+        console.log(burgerButtons);
+        if (menu) {
+            menu.classList.toggle('open');
+            burgerButtons.forEach(button => {
+                button.classList.toggle('active');
+            });
+        }
+    }
 
-function toggleMenu() {
-  menu.classList.toggle('open');
-  burger.classList.toggle('active');
-}
+document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(event) {
+            const menu = document.getElementById('header_top_burger_menu');
+            if (menu.classList.contains('open')) {
+                const isMenuOpen = menu.classList.contains('open');
+                const isClickInsideMenu = menu.contains(event.target);
+                const isClickOnBurger = event.target.classList.contains('header_top_burger');
 
-burger.addEventListener('click', function(event) {
-  event.stopPropagation();
-  toggleMenu();
-});
+                if (isMenuOpen && !isClickInsideMenu && !isClickOnBurger) {
+                    toggleMenu();
+                }
+            }
+        });
 
-document.addEventListener('click', function(event) {
-  const isMenuOpen = menu.classList.contains('open');
-  const isClickInsideMenu = menu.contains(event.target);
-  const isClickOnBurger = burger.contains(event.target);
-
-  if (isMenuOpen && !isClickInsideMenu && !isClickOnBurger) {
-    toggleMenu();
-  }
 });
