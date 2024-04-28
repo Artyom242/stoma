@@ -1,0 +1,50 @@
+.contact_section {
+    background: #F5F5F5;
+    padding: 45px 0;
+}
+
+.contact_section_blocks {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.contact_block svg g,
+.contact_block svg{
+    fill: #0082cb;
+    width: 36px;
+    height: 36px;
+}
+
+.two_phone_show {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.one_phone {
+    transition: all 0.4s;
+    display: flex;
+    justify-content: end;
+}
+
+.one_phone:hover .two_phone_show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (min-width: 840px) {
+    .one_phone:hover {
+        margin-bottom: 30px; 
+    }
+}
+
+@media (max-width: 840px) {
+    .one_phone {
+        margin-bottom: 30px;
+    }
+}

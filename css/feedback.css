@@ -1,0 +1,145 @@
+/*  */
+.feedback_section {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    margin-bottom: 70px;
+}
+.feedback_section__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.feedback_title__btn {
+  max-width: 250px;
+}
+
+.feedback_section__body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(400px, 1fr));
+  gap: 30px;
+}
+
+.feedback_section__block {
+  position: relative;
+  padding: 30px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-shadow: 8px 8px 10px #d6d6d6;
+  overflow: auto;
+}
+
+.row_pole .feedback_block_profile {
+  align-items: center;
+  gap: 10px;
+}
+
+.feedback_block_row_star {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.services_feedback_sections {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.services_feedback_block {
+	background: #cdeafb;
+	border-radius: 5px;
+	border: 1px solid #dcf1fd;
+	padding: 10px 20px;
+}
+
+.feedback_block_data {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+
+/* Paginate */
+
+.paginate_section {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginate_section a {
+    padding: 5px 10px;
+    line-height: auto;
+}
+
+.active_paginate_section{
+    color: #0082cb;
+}
+
+.paginate_block {
+    background: #ffffff00;
+    padding: 5px;
+}
+
+.btn_paginate {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F5F5F5;
+    cursor: pointer;
+}
+
+.error_paginate_block  {
+    fill: #d6d6d6;
+    pointer-events: none;
+}
+
+.error_paginate_block svg g {
+    fill: #d6d6d6;
+}
+
+.btn_paginate svg {
+    height: 25px;
+    width: 25px;
+}
+
+.btn_paginate svg g {
+    transition: all, .2s;
+}
+
+.btn_paginate svg:hover g {
+    fill: #0082cb;
+    transition: all, .2s;
+}
+
+.prev_btn {
+    rotate: 90deg;
+}
+
+.next_btn {
+    rotate: -90deg;
+}
+
+@media (max-width:1000px) {
+	.feedback_section__body {
+		grid-template-columns: 1fr;
+	}
+
+	.feedback_section__title {
+		flex-direction: column;
+		gap: 40px;
+	}
+
+    .feedback_section {
+        gap: 40px;
+    }
+}
+
