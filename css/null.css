@@ -156,6 +156,10 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
 }
 
+main {
+    flex: 1 1 auto;
+}
+
 .wrapper ::-webkit-scrollbar {
   width: 10px;
   /* ширина scrollbar */
@@ -212,6 +216,7 @@ body::-webkit-scrollbar-thumb {
 p {
   font-size: calc(16px + 2 * (100vw / 1300));
   font-weight: 300;
+  line-height: 1.2;
 }
 
 .p_20 {
@@ -223,7 +228,7 @@ p {
 }
 
 .text_small {
-  font-size: calc(15px + 0 * (100vw / 1300));
+  font-size: calc(13px + 2 * (100vw / 1300));
 }
 
 .line_height_min {
@@ -259,4 +264,13 @@ h5 {
   font-weight: normal;
   line-height: 1.2;
   color: #2f2f2f;
+}
+
+@media (max-width: 1000px){
+    .main_blocks {
+        padding-top: 70px;
+    }
+    .title_section {
+        margin-bottom: 70px;
+    }
 }
