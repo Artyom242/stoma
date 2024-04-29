@@ -51,12 +51,10 @@
 }
 
 .services_feedback_block {
-	background: #cdeafb;
 	border-radius: 5px;
 	border: 1px solid #dcf1fd;
-	padding: 10px 20px;
+    font-size: 15px;
 }
-
 .feedback_block_data {
 	position: absolute;
 	top: 20px;

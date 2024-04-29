@@ -22,6 +22,15 @@
   height: 36px;
 }
 
+.icon_info__block .icon_img svg {
+    width: 36px;
+    height: 36px;
+}
+
+.icon_info__block .icon_img svg g {
+    fill: #0082cb;
+}
+
 .info_block__social svg {
   height: 30px;
   width: 30px;
@@ -308,6 +317,10 @@
   visibility: visible;
 }
 
+.phone_text {
+    letter-spacing: 1px;
+}
+
 /* настройка компонентов скрытого блока */
 
 .services_menu_sections {
@@ -558,6 +571,7 @@
 .form_radio_btn input[type="radio"] {
   display: none;
 }
+ 
 .form_radio_btn label {
   cursor: pointer;
   border: 1px solid #d3d3d3;
@@ -569,8 +583,13 @@
   justify-content: center;
   align-items: center;
   transition: all, 0.2s;
-  box-shadow: 2px 2px 5px #bdbdbd;
 }
+
+.form_radio_btn label:hover {
+    color: #0082cb;
+    transform: rotateY(10deg);
+    box-shadow: 2px 2px 5px #bdbdbd;
+} 
 
 /* Checked */
 .form_radio_btn input[type="radio"]:checked + label {
@@ -652,6 +671,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  align-items: start;
 }
 
 .call_section_item {
@@ -668,16 +688,6 @@
 
 .call_section_right img {
   border-radius: 10px;
-}
-
-.call_section_bottom .icon_img {
-  width: 43px;
-  height: 43px;
-}
-
-.call_section_bottom .icon_img svg {
-  width: 43px;
-  height: 43px;
 }
 
 .icon_img_blue svg path,
@@ -730,12 +740,16 @@
 
 .addres_block .icon_img,
 .addres_block .icon_img svg {
-  width: 58px;
+  width: 48px;
   height: auto;
 }
 
+.addres_block .icon_img svg g {
+    fill: #000;
+  }
+
 .addres_block {
-  gap: 24px;
+  gap: 20px;
 }
 
 /* CLINIC MAP/INFO */
@@ -823,6 +837,20 @@
     margin-top: 20px;
 }
 
+/* Feedback */
+
+.btn_blue {
+	background: #cdeafb;
+    border-radius: 10px;
+    transition: all .2s;
+    padding: 10px 20px;
+}
+
+.btn_blue:hover {
+    color: #0082cb;
+}
+
+
 /* Footer */
 .back_footer {
   background: #111111;
@@ -863,6 +891,15 @@
   gap: 15px;
 }
 
+.contacts_footer .icon_img svg {
+    width: 36px;
+    height: 36px;
+}
+
+.contacts_footer .icon_img svg g {
+    fill: white;
+}
+
 .footer_bottom {
   padding: 15px 0;
   display: flex;
@@ -883,6 +920,13 @@
   position: relative;
   height: 60px;
 }
+
+@media (max-height: 700px) {
+	.header_middle_text {
+		height: 470px;
+	}
+}
+
 
 @media (max-width: 1200px) {
   .header_top__info {
