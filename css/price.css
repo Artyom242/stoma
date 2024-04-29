@@ -1,0 +1,78 @@
+.price_title {
+    margin-bottom: 30px;
+}
+
+
+.accordion_section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+
+}
+  
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .accordion_btn {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    transition: all .5s;
+    cursor: pointer;
+    border: 1px solid #DCDCDC;
+    background: #fff;
+  }
+  
+  .active {
+    background: #cdeafb;
+    color: #000;
+    transform: rotateY(15deg);
+    box-shadow: 2px 2px 5px #dadada;
+}
+
+.table_section {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.column_block {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.column_block__title p{
+    font-weight: 400;
+}
+
+  /* минус/плюс */
+.plus {
+    position: absolute;
+    top: calc(50% - 10px);
+    right: 15px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+.plus rect {
+    transition: all 0.3s;
+    transform: rotate(0);
+}
+
+.active .vertical-line {
+    transform: rotate3d(1, 1, 0, 90deg)
+}
