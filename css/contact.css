@@ -1,50 +1,62 @@
 .contact_section {
-    background: #F5F5F5;
-    padding: 45px 0;
+    position: relative;
 }
 
-.contact_section_blocks {
+.contact_section__blocks {
+    position: relative;
+}
+
+.contact_block {
+    max-width: 630px;
+    height: auto;
+    position: relative;
+}
+
+.clinic_blocks {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     gap: 20px;
-    justify-content: space-around;
 }
 
-.contact_block svg g,
-.contact_block svg{
-    fill: #0082cb;
+.clinic_blocks .icon_info__block svg,
+.clinic_blocks .icon_info__block svg g path {
+    fill: black;
     width: 36px;
     height: 36px;
 }
 
 .two_phone_show {
-    position: absolute;
+    position: relative;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.5s ease;
-    margin-top: 40px;
+    transition: all 0.5s;
     border-radius: 10px;
+    justify-content: end;
+    height: 0;
 }
 
 .one_phone {
-    transition: all 0.4s;
+    position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: end;
 }
 
 .one_phone:hover .two_phone_show {
     opacity: 1;
     visibility: visible;
+    height: 20px;
 }
 
-@media (min-width: 840px) {
-    .one_phone:hover {
-        margin-bottom: 30px; 
-    }
-}
 
-@media (max-width: 840px) {
-    .one_phone {
-        margin-bottom: 30px;
+@media (max-width: 700px) {
+    .contact_block {
+        max-width: 100%;
     }
+
+    .two_phone_show {
+        opacity: 1;
+        visibility: visible;
+        height: 20px;
+      }
 }

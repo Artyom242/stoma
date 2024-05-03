@@ -1,0 +1,36 @@
+.big_icon {
+    position: absolute;
+    top: calc(50% - 200px);
+    right: calc(50% - 600px);
+    z-index: -1;
+    /* transform: rotate3d(1, -1, 1, 52deg); */
+}
+
+.big_icon svg {
+    width: 400px;
+    height: 400px;
+}
+
+.big_icon svg g{
+    fill: white;
+}
+
+.big_icon svg g,
+.big_icon svg path  {
+    filter: drop-shadow(0px 5px 4px #a5a5a5) drop-shadow(0 -15px 9px #0082cb);
+    /* filter: drop-shadow(60px -55px 10px rgb(192, 192, 192)) drop-shadow(20px 4px 10px #0082cb); */
+}
+
+/* viewBox="-12 -12 535 535 */
+
+@media (max-width: 1200px) {
+    .big_icon {
+        right: 10px;
+    }
+}
+
+@media (max-width: 700px) {
+    .big_icon {
+        display: none;
+    }
+}
