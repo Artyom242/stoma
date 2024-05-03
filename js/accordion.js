@@ -1,69 +1,38 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const accordionBtns = document.querySelectorAll('.accordion_btn');
-    const dataContainer = document.querySelector('.table_section');
+document.querySelectorAll('.accordion_btn').forEach(item => {
+    const firstAccordionItem = document.querySelector('.accordion_item'); // Выбираем первый элемент аккордеона
+    const firstAccordionBtn = firstAccordionItem.querySelector('.accordion_btn'); // Выбираем кнопку в первом элементе аккордеона
+    const firstAccordionContent = firstAccordionItem.querySelector('.accordion_content'); // Выбираем содержимое в первом элементе аккордеона
 
-    // Данные для разделов
-    const data1 = [
-        { name: 'Лечение кариеса пломба химического отверждения', price: 'от 2000 до 2500' },
-        { name: 'Лечение кариеса пломба светового отверждения', price: '2500' },
-        { name: 'Лечение кариеса пломба светового отверждения', price: '2000' },
-    ];
+    // Добавляем классы active и accordion_content__active к первому элементу аккордеона
+    firstAccordionItem.classList.add('active');
+    firstAccordionBtn.classList.add('accordion_btn__active');
+    firstAccordionContent.classList.add('accordion_content__active');
+    firstAccordionContent.style.maxHeight = firstAccordionContent.scrollHeight + 'px'; // Устанавливаем максимальную высоту содержимого
 
-    const data2 = [
-        { name: 'Лечение пульпита однокорневого зуба', price: '129399' },
-        { name: 'Лечение пульпита трехкорневого зуба', price: '1230' },
-        { name: 'Лечение кариеса пломба химического отверждения', price: '2300' },
-        { name: 'Лечение периодонтита', price: '5000' },
-        { name: 'Лечение периодонтита', price: '5000' },
-        { name: 'Лечение периодонтита', price: '5000' },
-        { name: 'Лечение периодонтита', price: '5000' },
-        { name: 'Лечение периодонтита', price: '5000' },
-        { name: 'Лечение периодонтита', price: '5000' },
-    ];
 
-    function updateData(data) {
-        // Очистка контейнера данных
-        dataContainer.innerHTML = '';
+    item.addEventListener('click', event => {
+        const parent = item.closest('.accordion_item'); // Находим ближайший родительский элемент с классом accordion_item
+        const content = parent.querySelector('.accordion_content'); // Находим соответствующий блок с содержимым
+        const isActive = content.classList.contains('accordion_content__active'); // Проверяем, активен ли данный элемент
 
-        // Создание заголовка
-        const titleBlock = document.createElement('div');
-        titleBlock.classList.add('column_block', 'column_block__title');
-        titleBlock.innerHTML = `
-        <p>Название процедуры</p>
-        <p>Цена</p>
-      `;
-        dataContainer.appendChild(titleBlock);
-
-        // Добавление данных в контейнер
-        data.forEach(item => {
-            const dataBlock = document.createElement('div');
-            dataBlock.classList.add('column_block');
-            dataBlock.innerHTML = `
-          <p>${item.name}</p>
-          <p>${item.price}</p>
-        `;
-            dataContainer.appendChild(dataBlock);
+        // Закрываем все активные элементы
+        document.querySelectorAll('.accordion_item').forEach(el => {
+            el.classList.remove('active');
+            el.querySelector('.accordion_content').classList.remove('accordion_content__active');
+            el.querySelector('.accordion_content').style.maxHeight = `0`;
         });
 
-        // Мгновенное изменение высоты
-        dataContainer.style.maxHeight = dataContainer.scrollHeight + 'px'; // Установить новую высоту
-    }
-
-    accordionBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-            const title = this.dataset.title;
-            let data;
-            if (title === 'Раздел 1') {
-                data = data1;
-            } else if (title === 'Раздел 2') {
-                data = data2;
-            }
-            accordionBtns.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            updateData(data);
+        // Убираем класс active у всех кнопок
+        document.querySelectorAll('.accordion_btn').forEach(btn => {
+            btn.classList.remove('accordion_btn__active');
         });
+
+        // Если текущий элемент не активен, делаем его активным
+        if (!isActive) {
+            item.classList.add('accordion_btn__active');
+            parent.classList.add('active');
+            content.classList.add('accordion_content__active');
+            content.style.maxHeight = content.scrollHeight + 18 + 'px';
+        }
     });
-
-    // По умолчанию открываем первый раздел и обновляем данные
-    accordionBtns[0].click();
 });

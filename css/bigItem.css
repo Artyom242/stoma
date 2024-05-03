@@ -21,14 +21,6 @@
     /* filter: drop-shadow(60px -55px 10px rgb(192, 192, 192)) drop-shadow(20px 4px 10px #0082cb); */
 }
 
-
-.main_blocks {
-    background-image: url(../img/fon.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -1;
-}
-
 /* viewBox="-12 -12 535 535 */
 
 @media (max-width: 1200px) {
@@ -36,7 +28,6 @@
         right: 10px;
     }
 }
-
 
 @media (max-width: 700px) {
     .big_icon {
