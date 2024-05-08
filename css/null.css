@@ -59,7 +59,7 @@ input::placeholder {
 }
 
 label {
-  font-size: 18px;
+    font-size: calc(16px + 2 * (100vw / 1300));
   font-weight: 300;
 }
 
