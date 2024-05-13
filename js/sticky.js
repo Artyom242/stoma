@@ -1,6 +1,6 @@
 window.addEventListener('scroll', function () {
     var headerSticky = document.querySelector('.header_sticky');
-    if (window.scrollY > 600) {
+    if (window.scrollY > 600 || window.innerWidth < 630 && window.scrollY > 400) {
         headerSticky.classList.add('visible'); // Добавляем класс visible для плавного показа
     } else {
         headerSticky.classList.remove('visible'); // Удаляем класс visible для плавного скрытия
