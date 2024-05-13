@@ -152,7 +152,7 @@
 }
 
 .services_menu_block__title svg path {
-    fill: #0082cb;
+    fill: #fff;
 }
 
 .header_top_burger_menu {
@@ -752,6 +752,7 @@
 .swiper-slide {
   width: auto;
   height: auto;
+  cursor: pointer;
 }
 
 /* Call-section */

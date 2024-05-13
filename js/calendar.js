@@ -32,27 +32,35 @@ function Calendar(id, year, month) {
 
 function handleCellEvents() {
     var cells = document.querySelectorAll('#calendar tbody td');
-    cells.forEach(function(cell) {
+    cells.forEach(function (cell) {
         if (cell.innerHTML.trim() !== '') {
-            cell.onmouseover = function() {
+            cell.onmouseover = function () {
                 if (!this.classList.contains('selected')) {
                     this.style.backgroundColor = '#dcf1fd';
                 }
             };
-            cell.onmouseout = function() {
+            cell.onmouseout = function () {
                 if (!this.classList.contains('selected')) {
                     this.style.backgroundColor = '';
                 }
             };
-            cell.onclick = function() {
-                var selected = document.querySelector('.selected');
-                if (selected) {
-                    selected.classList.remove('selected');
-                    selected.style.backgroundColor = '';
+            cell.onclick = function () {
+                if (this.classList.contains('selected')) {
+                    // Если ячейка уже была выбрана, снимаем выделение
+                    this.classList.remove('selected');
+                    this.style.backgroundColor = '';
+                } else {
+                    // Если ячейка не была выбрана, добавляем выделение
+                    var selected = document.querySelector('.selected');
+                    if (selected) {
+                        selected.classList.remove('selected');
+                        selected.style.backgroundColor = '';
+                    }
+                    this.classList.add('selected');
+                    this.style.backgroundColor = '#dcf1fd';
                 }
-                this.classList.add('selected');
-                this.style.backgroundColor = '#dcf1fd';
             };
+
         }
     });
 }
@@ -60,12 +68,12 @@ function handleCellEvents() {
 Calendar("calendar", new Date().getFullYear(), new Date().getMonth());
 handleCellEvents();
 
-document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
+document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(1)').onclick = function () {
     Calendar("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month) - 1);
     handleCellEvents();
 }
 
-document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
+document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(3)').onclick = function () {
     Calendar("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month) + 1);
     handleCellEvents();
 }
