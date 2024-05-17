@@ -1,14 +1,14 @@
 .big_icon {
     position: absolute;
-    top: calc(50% - 200px);
-    right: calc(50% - 600px);
+    top: calc(50% - 150px);
+    right: calc(50% - 550px);
     z-index: -1;
     /* transform: rotate3d(1, -1, 1, 52deg); */
 }
 
 .big_icon svg {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
 }
 
 .big_icon svg g{

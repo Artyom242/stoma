@@ -7,15 +7,21 @@
 }
 
 .contact_block {
-    max-width: 630px;
+    width: 100%;
     height: auto;
     position: relative;
 }
 
 .clinic_blocks {
     display: flex;
-    flex-direction: column;
     gap: 20px;
+}
+
+.contact_block__btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .clinic_blocks .icon_info__block svg,
@@ -48,12 +54,13 @@
     height: 20px;
 }
 
+@media (max-width: 840px) {
+    .clinic_blocks {
+        flex-direction: column;
+    }
+}
 
 @media (max-width: 700px) {
-    .contact_block {
-        max-width: 100%;
-    }
-
     .two_phone_show {
         opacity: 1;
         visibility: visible;
