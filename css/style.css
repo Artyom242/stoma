@@ -594,6 +594,7 @@
   height: 45px;
   width: 60px;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .row_title_calendar {

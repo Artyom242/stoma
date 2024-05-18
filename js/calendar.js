@@ -77,3 +77,10 @@ document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(3)').onclic
     Calendar("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month) + 1);
     handleCellEvents();
 }
+
+// маска телефона
+
+$(function () {
+    //2. Получить элемент, к которому необходимо добавить маску
+    $("#phone").mask("+7(999) 999-9999");
+});
