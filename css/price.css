@@ -1,7 +1,3 @@
-.price_title {
-    margin-bottom: 30px;
-}
-
 .price_section {
     position: relative;
 }
@@ -64,6 +60,7 @@
 }
 
 .column_block {
+    cursor: pointer;
     display: flex;
     gap: 10px;
     justify-content: space-between;
@@ -97,8 +94,8 @@
 
 .price_section .big_icon {
     position: absolute;
-    top: 150px;
-    right: calc(50% - 600px);
+    top: 180px;
+    right: calc(50% - 550px);
     z-index: -1;
 }
 
