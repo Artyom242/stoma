@@ -17,6 +17,11 @@
     overflow-x: hidden;
   }
   
+  .modal_header {
+    position: relative;
+    width: 100%;
+  }
+
   /* Затемняющий фон */
   .overlay {
     display: none;
@@ -34,11 +39,20 @@
   /* Кнопка закрытия модального окна */
   .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
     cursor: pointer;
-    background: #bebebe;
-    border-radius: 5px;
+    background: #2f2f2f;
+    /* border-radius: 5px; */
+  }
+
+  .close-btn svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .close-btn .ham8.active .line {
+    stroke: #fff;
   }
   
   body.modal-open {
@@ -51,9 +65,8 @@
 
   @media (max-width: 630px) {
     .modal {
-        padding: 20px;
+        padding: 40px 20px;
     }
-    .modal-content {
-        margin-top: 70px;
-      }
+
+
 }
