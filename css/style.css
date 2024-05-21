@@ -15,6 +15,7 @@
   align-items: center;
   gap: 14px;
   line-height: 1.3;
+  width: auto;
 }
 
 .icon_info__block .icon_img,
@@ -209,8 +210,8 @@
 
 /* Header_middle */
 .header_middle {
-  background: linear-gradient(90deg, #0081cbad 0%, rgba(255, 255, 255, 0) 70%);
-  position: relative;
+  /* background: linear-gradient(90deg, #0081cbad 20%, rgba(255, 255, 255, 0) 90%); */
+  background: linear-gradient(90deg, #017ec7a6 20%, rgba(255, 255, 255, 0) 90%);  position: relative;
 }
 
 .header_middle__fon {
@@ -325,9 +326,9 @@
 }
 
 .header_bottom_menu {
-  height: 60px;
   text-align: center;
   display: flex;
+  height: 60px;
   align-items: center;
   justify-content: space-around;
   gap: 100px;
@@ -457,8 +458,10 @@
 
 .services_menu_block__boby a::before {
   content: "•";
+  font-weight: bold;
   margin-right: 10px;
   position: relative;
+  top: 2px;
 }
 
 /* header_sticky */
@@ -765,12 +768,11 @@
 .call_section_left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 400px;
 }
 
 .call_section_top {
-  margin-bottom: 70px;
+  margin-bottom: 30px;
 }
 
 .call_section_bottom {
@@ -790,10 +792,12 @@
 }
 .call_section_right {
   flex: 1 1;
+  position: relative;
 }
 
 .call_section_right img {
   border-radius: 10px;
+  position: absolute;
 }
 
 .icon_img_blue svg path,
@@ -837,11 +841,6 @@
 .title_block {
   margin-bottom: 25px;
   text-align: center;
-}
-
-.block_cont {
-  padding-top: 25px;
-  border-top: 1px solid #bebebe;
 }
 
 .addres_block .icon_img,
@@ -890,13 +889,13 @@
   
   .servic_block_bottom__price {
     color: #0082cb;
-    width: 60%;
+    width: 100%;
   }
   
   .descriptions_section {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 70px;
   }
   
   .descriptions_title {
@@ -908,7 +907,20 @@
     flex-direction: column;
     gap: 20px;
     line-height: 1.2;
+    text-align: justify;
   }
+ 
+  .descriptions_block_list {
+    line-height: 1.2;
+  }
+
+.descriptions_block_list li::before{
+  content: "•";
+  font-weight: bold;
+  position: relative;
+  margin-right: 10px;
+  top: 2px;
+}
 
 .m_bottom {
     margin-bottom: 70px;
@@ -916,15 +928,21 @@
 
 /* Feedback */
 
-.btn_blue {
-	background: #cdeafb;
+ .btn_blue {
+	  background: #0082cb;
     border-radius: 10px;
     transition: all .2s;
     padding: 10px 20px;
 }
 
+.services_feedback_sections a{
+  color: white;
+}
+
 .btn_blue:hover {
-    color: #0082cb;
+    background: white;
+    color: black;
+    box-shadow: 2px 2px 10px #bdbdbd;
 }
 
 
@@ -1060,7 +1078,6 @@ footer .icon_img svg g {
   }
 
   .about_us_section {
-    gap: 26px;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(5, 100px);
   }
@@ -1162,53 +1179,36 @@ footer .icon_img svg g {
 
 @media (max-width: 630px) {
   .about_us_section {
-    gap: 20px;
+    gap: 50px;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
 
+  .about_us_section img {
+    max-height: 250px;
+  }
+
   .about_us_section_block_text {
-    gap: 15px;
+    gap: 30px;
     border-radius: 10px;
     padding: 12px;
   }
 
   .about_us_block_text {
     z-index: 10;
-    background: #ffffff;
-    box-shadow: 2px 2px 15px #bdbdbd;
+    /* background: #ffffff;
+    box-shadow: 2px 2px 15px #bdbdbd; */
   }
-
-  /* .about_us_block_text_top {
-    grid-area: 1 / 1 / 4 / 9;
-  }
-
-  .about_us_block_img_center {
-    grid-area: 3 / 3 / 6 / 11;
-    z-index: 2;
-  }
-
-  .about_us_block_img_right {
-    grid-area: 5 / 1 / 8 / 7;
-  }
-
-  .about_us_block_img_left {
-    grid-area: 9 / 2 / 12 / 10;
-  }
-
-  .about_us_block_text_bottom {
-    grid-area: 7 / 3 / 10 / 11;
-  } */
 
   .about_us_block_text_top {
     grid-area: auto;
-    grid-row-start: 1;
+    grid-row-start: 2;
   }
 
   .about_us_block_img_center {
     grid-area: auto;
     z-index: 2;
-    grid-row-start: 2;
+    grid-row-start: 1;
   }
 
   .about_us_block_img_right {
@@ -1241,7 +1241,7 @@ footer .icon_img svg g {
   }
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   .about_us_section {
     grid-template-rows: repeat(15, 30px);
   }
@@ -1265,5 +1265,5 @@ footer .icon_img svg g {
   .about_us_block_text_bottom {
     grid-area: 9 / 2 / 14 / 11;
   }
-}
+} */
 

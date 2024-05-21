@@ -103,6 +103,12 @@ a svg path {
 
 ul li {
   list-style: none;
+  font-size: calc(16px + 2 * (100vw / 1300));
+  font-weight: 300;
+}
+
+option, select {
+  font-size: calc(14px + 2 * (100vw / 1300));
 }
 
 img {
@@ -201,7 +207,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 70px;
-  padding-top: 100px;
+  padding-top: 75px;
 }
 
 .title_section {

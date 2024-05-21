@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/feedback.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/feedback_form.css">
     <link rel="icon" type="image/x-icon" href="/img/menu/logo.jpg" />
     <title>Стоматология "Ваш доктор"</title>
 </head>
@@ -620,7 +622,7 @@
                 <div class="__container feedback_section">
                     <div class="feedback_section__title">
                         <h2>Отзывы наших пациентов</h2>
-                        <button class="btn btn_submit feedback_title__btn">
+                        <button class="btn btn_submit feedback_title__btn openModalBtn">
                             <span>Оставить отзыв</span>
                         </button>
                     </div>
@@ -909,11 +911,80 @@
                                 <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
                                 <path d="M895 3506 c-67 -29 -105 -105 -90 -183 6 -34 100 -131 843 -875 744 -743 841 -837 875 -843 94 -18 39 -66 949 843 909 909 861 855 843 949 -9 49 -69 109 -118 118 -94 18 -46 59 -875 -768 l-762 -762 -758 757 c-424 424 -769 762 -785 768 -38 14 -85 12 -122 -4z"/>
                                 </g>
-                                </svg>
+                            </svg>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- modal -->
+            <div id="modal" class="modal">
+                            <span class="close-btn" id="closeModalBtn">
+                                <svg class="ham hamRotate ham8 active" viewBox="0 0 100 100" width="50">
+                                    <path class="line top" d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path>
+                                    <path class="line middle" d="m 30,50 h 40"></path>
+                                    <path class="line bottom" d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path>
+                                </svg>
+                              </span>
+                            <div class="modal_header">
+                                <h2 class="title_center">Оставить отзыв</h2>
+                            </div>
+                            <div class="modal-content">
+                                <div class="feedback_form">
+                                    <form action="" onsubmit="validateForm(event)" class="form">
+                                        <div class="block_forms">
+                                            <h4 class="title_calendar">Какие услуги вы проходили?</h4>
+                                            <div class="container">
+                                                <select id="dropdown" class="btn btn_input">
+                                                    <option value="">Выберите услуги</option>
+                                                    <option value="Лечение кариеса пломба химического отверждения">Лечение кариеса пломба химического отверждения</option>
+                                                    <option value="Лечение кариеса пломба светового отверждения">Лечение кариеса пломба светового отверждения</option>
+                                                    <option value="Лечение пульпита однокорневого зуба">Лечение пульпита однокорневого зуба</option>
+                                                    <option value="Лечение периодонтита">Лечение периодонтита </option>
+                                                    <option value="Реставрация зуба фотополимерным материалом">Реставрация зуба фотополимерным материалом</option>                                                
+                                                </select>
+                                                <div id="selected-container"></div>
+                                            </div>
+                                        </div>
+                                        <div class="block_forms">
+                                            <h4 class="title_calendar">Напишите отзыв</h4>
+                                            <div class="pole">
+                                                <textarea name="feedback" class="feedback_text_textarea" id=""></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="block_forms">
+                                            <h4 class="title_calendar">Поставьте оценку</h4>
+                                            <div class="pole">
+                                                <div class="stars">
+                                                    <img src="img/free-icon-star-1828884 5 (1).svg" alt="Серая звезда" data-value="1" />
+                                                    <img src="img/free-icon-star-1828884 5 (1).svg" alt="Серая звезда" data-value="2" />
+                                                    <img src="img/free-icon-star-1828884 5 (1).svg" alt="Серая звезда" data-value="3" />
+                                                    <img src="img/free-icon-star-1828884 5 (1).svg" alt="Серая звезда" data-value="4" />
+                                                    <img src="img/free-icon-star-1828884 5 (1).svg" alt="Серая звезда" data-value="5" />
+                                                </div>
+                                                <input type="hidden" name="rating" id="rating" value="0">
+                                            </div>
+                                        </div>
+                
+                                        <div class="block_forms">
+                                            <div class="pole column_pole">
+                                                <h4 class="title_calendar">Введите свое имя</h4>
+                                                <input class="btn btn_input" type="text" placeholder="Иван">
+                                            </div>
+                                            <div class="pole column_pole">
+                                                <h4 class="title_calendar">Введите свой телефон</h4>
+                                                <input class="btn btn_input" id="phone" type="tel" placeholder="+7 (999) 999-9999">
+                                                <button class="btn btn_submit" type="submit"><span>Отправить</span></button>
+                                                <p><span class="text_small">Нажимая на кнопку, вы даете согласие на обработку
+                                                        персональных данных и соглашаетесь с политикой конфиденциальности</span></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+            </div>
+            <div id="overlay" class="overlay"></div>
         </main>
         <footer class="back_footer">
             <div class="__container">
@@ -1071,6 +1142,14 @@
 
     <script src="js/sticky.js"></script>
     <script src="js/burger.js"></script>
+
+    <script src="js/pop_up.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
+    <script src="js/phone.js"></script>
+
+    <script src="js/feedback_list.js"></script>
 </body>
 
 </html>
