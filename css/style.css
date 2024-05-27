@@ -567,35 +567,35 @@
   max-width: 400px;
 }
 
-#calendar {
+.calendar {
   width: 100%;
   border-collapse: collapse;
   text-align: center;
   user-select: none;
 }
-#calendar thead tr:last-child {
+.calendar thead tr:last-child {
   font-size: small;
   color: rgb(85, 85, 85);
 }
-#calendar thead tr:nth-child(1) td:nth-child(2) {
+.calendar thead tr:nth-child(1) td:nth-child(2) {
   color: rgb(50, 50, 50);
 }
-#calendar thead tr:nth-child(1) td:nth-child(1):hover,
-#calendar thead tr:nth-child(1) td:nth-child(3):hover {
+.calendar thead tr:nth-child(1) td:nth-child(1):hover,
+.calendar thead tr:nth-child(1) td:nth-child(3):hover {
   cursor: pointer;
 }
-#calendar tbody td {
+.calendar tbody td {
   color: black;
 }
-#calendar tbody td:nth-child(n + 6),
-#calendar .holiday {
+.calendar tbody td:nth-child(n + 6),
+.calendar .holiday {
   color: red;
 }
-#calendar tbody td.today {
+.calendar tbody td.today {
   border: 1px #bdbdbd dashed;
 }
 
-#calendar .body_calendar tr td {
+.calendar .body_calendar tr td {
   height: 45px;
   width: 60px;
   font-size: 16px;

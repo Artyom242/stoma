@@ -269,6 +269,10 @@ h4 {
   line-height: 1.2;
 }
 
+h5 {
+  text-align: left;
+}
+
 .title_calendar,
 h5 {
   font-size: calc(18px + 4 * (100vw / 1300));
@@ -276,7 +280,6 @@ h5 {
   line-height: 1.2;
   color: #2f2f2f;
   text-wrap: balance;
-  text-align: left;
 }
 
 @media (max-width: 1000px){
