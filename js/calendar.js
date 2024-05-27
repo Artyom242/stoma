@@ -1,4 +1,4 @@
-function Calendar(id, year, month) {
+function Calendar(container, year, month) {
     var Dlast = new Date(year, month + 1, 0).getDate(),
         D = new Date(year, month, Dlast),
         DNlast = new Date(D.getFullYear(), D.getMonth(), Dlast).getDay(),
@@ -6,7 +6,6 @@ function Calendar(id, year, month) {
         calendar = '<tr>',
         monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
 
-    // Перемещаемся на начало текущей недели
     var startOffset = DNfirst === 0 ? 6 : DNfirst - 1;
 
     for (var i = 0; i < startOffset; i++) {
@@ -24,14 +23,16 @@ function Calendar(id, year, month) {
         }
     }
 
-    document.querySelector('#' + id + ' tbody').innerHTML = calendar;
-    document.querySelector('#' + id + ' thead td:nth-child(2)').innerHTML = monthNames[D.getMonth()] + ' ' + D.getFullYear();
-    document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.month = D.getMonth();
-    document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.year = D.getFullYear();
+    var calendarElement = container.querySelector('tbody');
+    calendarElement.innerHTML = calendar;
+    var titleElement = container.querySelector('thead .title_calendar');
+    titleElement.innerHTML = monthNames[D.getMonth()] + ' ' + D.getFullYear();
+    titleElement.dataset.month = D.getMonth();
+    titleElement.dataset.year = D.getFullYear();
 }
 
-function handleCellEvents() {
-    var cells = document.querySelectorAll('#calendar tbody td');
+function handleCellEvents(container) {
+    var cells = container.querySelectorAll('tbody td');
     cells.forEach(function (cell) {
         if (cell.innerHTML.trim() !== '') {
             cell.onmouseover = function () {
@@ -46,12 +47,10 @@ function handleCellEvents() {
             };
             cell.onclick = function () {
                 if (this.classList.contains('selected')) {
-                    // Если ячейка уже была выбрана, снимаем выделение
                     this.classList.remove('selected');
                     this.style.backgroundColor = '';
                 } else {
-                    // Если ячейка не была выбрана, добавляем выделение
-                    var selected = document.querySelector('.selected');
+                    var selected = container.querySelector('.selected');
                     if (selected) {
                         selected.classList.remove('selected');
                         selected.style.backgroundColor = '';
@@ -60,27 +59,43 @@ function handleCellEvents() {
                     this.style.backgroundColor = '#dcf1fd';
                 }
             };
-
         }
     });
 }
 
-Calendar("calendar", new Date().getFullYear(), new Date().getMonth());
-handleCellEvents();
+function setupCalendar(container) {
+    var year = new Date().getFullYear();
+    var month = new Date().getMonth();
+    Calendar(container, year, month);
+    handleCellEvents(container);
 
-document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(1)').onclick = function () {
-    Calendar("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month) - 1);
-    handleCellEvents();
+    container.querySelector('.row_title_calendar .prev').onclick = function () {
+        month--;
+        if (month < 0) {
+            month = 11;
+            year--;
+        }
+        Calendar(container, year, month);
+        handleCellEvents(container);
+    }
+
+    container.querySelector('.row_title_calendar .next').onclick = function () {
+        month++;
+        if (month > 11) {
+            month = 0;
+            year++;
+        }
+        Calendar(container, year, month);
+        handleCellEvents(container);
+    }
 }
 
-document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(3)').onclick = function () {
-    Calendar("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month) + 1);
-    handleCellEvents();
-}
+document.addEventListener('DOMContentLoaded', function () {
+    var calendars = document.querySelectorAll('.calendar');
+    calendars.forEach(setupCalendar);
+});
 
 // маска телефона
-
 $(function () {
-    //2. Получить элемент, к которому необходимо добавить маску
     $("#phone").mask("+7(999) 999-9999");
 });
