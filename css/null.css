@@ -271,10 +271,12 @@ h4 {
 
 .title_calendar,
 h5 {
-  font-size: calc(20px + 2 * (100vw / 1300));
+  font-size: calc(18px + 4 * (100vw / 1300));
   font-weight: normal;
   line-height: 1.2;
   color: #2f2f2f;
+  text-wrap: balance;
+  text-align: left;
 }
 
 @media (max-width: 1000px){

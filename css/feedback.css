@@ -44,11 +44,6 @@
   gap: 5px;
   align-items: center;
 }
-.services_feedback_sections {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-}
 
 .services_feedback_block {
 	border-radius: 5px;
